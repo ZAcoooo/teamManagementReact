@@ -3,7 +3,6 @@ import LeaderHomeNavBar from "../fragments/LeaderHomeNavBar";
 import ProjectCard from "../components/ProjectCard";
 import { Link } from "react-router-dom";
 
-
 class LeaderHome extends Component {
   render () {
     return (
