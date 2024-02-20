@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
-class LeaderHomeNavBar extends Component {
+class LeaderProjectNavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -18,7 +18,6 @@ class LeaderHomeNavBar extends Component {
               <li className="nav-item">
                 <span className="navbar-text ms-auto">Role: Leader</span>
               </li>
-              
             </ul>
           </div>
         </div>
@@ -27,4 +26,4 @@ class LeaderHomeNavBar extends Component {
   }
 }
 
-export default LeaderHomeNavBar;
+export default LeaderProjectNavBar;
