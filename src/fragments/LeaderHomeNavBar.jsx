@@ -13,12 +13,8 @@ class LeaderHomeNavBar extends Component {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Leader" style={{ fontSize: "22px" }}>Home</Link>
+                <Link className="nav-link active" aria-current="page" to="/Leader" style={{ fontSize: "22px" }}>Leader Home</Link>
               </li>
-              <li className="nav-item">
-                <span className="navbar-text ms-auto">Role: Leader</span>
-              </li>
-              
             </ul>
           </div>
         </div>
