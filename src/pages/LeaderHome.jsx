@@ -4,6 +4,10 @@ import ProjectCard from "../components/ProjectCard";
 import { Link } from "react-router-dom";
 
 class LeaderHome extends Component {
+  constructor(props) {
+    super(props);
+    console.log("props in home", props);
+  }
   render () {
     return (
       <div>

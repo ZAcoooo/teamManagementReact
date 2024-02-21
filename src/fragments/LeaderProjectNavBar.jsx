@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class LeaderProjectNavBar extends Component {
   render() {
+    const { project } = this.props;
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -16,10 +18,7 @@ class LeaderProjectNavBar extends Component {
                 <Link className="nav-link active" aria-current="page" to="/Leader" style={{ fontSize: "20px" }}>Leader Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Project/CreateTask" style={{ fontSize: "20px" }}>Create Task</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Project/ViewTasks" style={{ fontSize: "20px" }}>View Tasks</Link>
+                <Link className="nav-link active" aria-current="page" to={{ pathname: "/Project/CreateTask", state: { project }}} style={{ fontSize: "20px" }}>Create Task</Link>
               </li>
             </ul>
           </div>
@@ -28,5 +27,9 @@ class LeaderProjectNavBar extends Component {
     );
   }
 }
+
+LeaderProjectNavBar.propTypes = {
+  project: PropTypes.object.isRequired,
+};
 
 export default LeaderProjectNavBar;
