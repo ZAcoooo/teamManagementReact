@@ -1,18 +1,9 @@
 import React, { Component } from "react";
 import LeaderProjectNavBar from "../fragments/LeaderProjectNavBar";
 import CreateTaskForm from "../components/CreateTaskForm";
-import Project from "../model/Project";
 import PropTypes from "prop-types";
 
 class CreateTaskPage extends Component {
-  constructor(props) {
-    super(props);
-    // const location = useLocation();
-    // console.log("Props", location);
-    // this.state = {
-    //   project: props.location.state.project,
-    // };
-  }
   onCreateTask = (task) => {
     console.log("Task created:", task);
     const { title, startDate, endDate, description, comments, members } = task;
@@ -25,21 +16,18 @@ class CreateTaskPage extends Component {
 
 
   render () {
+    const { project } = this.props;
     return (
       <div>
         <LeaderProjectNavBar />
-        <CreateTaskForm onCreateTask={this.onCreateTask}/>
+        <CreateTaskForm onCreateTask={this.onCreateTask} project={project}/>
       </div>
     );
   }
 }
 
 CreateTaskPage.propTypes = {
-  location: PropTypes.shape({
-    state: PropTypes.shape({
-      project: PropTypes.instanceOf(Project).isRequired,
-    }).isRequired,
-  }).isRequired,
+  project: PropTypes.object.isRequired,
 };
 
 export default CreateTaskPage;

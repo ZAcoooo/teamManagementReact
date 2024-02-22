@@ -31,14 +31,40 @@ export default class CreateTaskForm extends Component {
 
   onCreate = (event) => {
     event.preventDefault();
-
+    const { project } = this.props;
+    console.log("p:", project);
+    console.log("pxxx:", event.target);
     const formData = new FormData(event.target);
     console.log("onCreate", Object.fromEntries(formData));
+    const title = formData.get("title");
+    const startDate = formData.get("startDate");
+    const endDate = formData.get("endDate");
+    const description = formData.get("description");
+    const members = [];
+    
+    // Loop through the formData object to get the selected members
+    for (const pair of formData.entries()) {
+      const [name] = pair;
+      if (name !== "title" && name !== "startDate" && name !== "endDate" && name !== "description") {
+        members.push(name);
+      }
+    }
+    
+    // Now you have access to the specific data from the form
+    console.log("Title:", title);
+    console.log("Start Date:", startDate);
+    console.log("End Date:", endDate);
+    console.log("Description:", description);
+    console.log("Members:", members);
 
-    this.props.onCreateTask(Object.fromEntries(formData));
+    project.createTask(title, startDate, endDate, description, members);
+    localStorage.setItem("project", JSON.stringify(project));
+    console.log("project:", project);
   };
 
   render() {
+    const { project } = this.props;
+    console.log("project123:", project);
     const { members } = this.state;
     return (
       <form className="mt-2" action="/" onSubmit={this.onCreate}>
@@ -123,5 +149,5 @@ export default class CreateTaskForm extends Component {
 }
 
 CreateTaskForm.propTypes = {
-  onCreateTask: PropTypes.func.required,
+  project: PropTypes.object.isRequired,
 };

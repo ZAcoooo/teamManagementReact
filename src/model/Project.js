@@ -14,15 +14,15 @@ export default class Project {
     ];
   }
 
-  createTask(title, startDate, endDate, description, comments, members) {
+  createTask(title, startDate, endDate, description, members) {
     this.tasks.push(
       new Task({
-        id: this.getNextId(),
+        id: this.tasks.length + 1,
         title,
         startDate,
         endDate,
         description,
-        comments,
+        comments: [],
         members,
       })
     );
