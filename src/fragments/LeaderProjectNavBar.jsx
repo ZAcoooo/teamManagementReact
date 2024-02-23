@@ -16,6 +16,9 @@ class LeaderProjectNavBar extends Component {
                 <Link className="nav-link active" aria-current="page" to="/Leader" style={{ fontSize: "20px" }}>Leader Home</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/Project" style={{ fontSize: "20px" }}>View Tasks</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/Project/CreateTask" style={{ fontSize: "20px" }}>Create Task</Link>
               </li>
             </ul>
