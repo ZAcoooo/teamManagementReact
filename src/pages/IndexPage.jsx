@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./IndexPage.css";
 
 class IndexPage extends Component {
+
   render() {
     return (
       <div className='login'>
