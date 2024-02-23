@@ -7,5 +7,6 @@ export default class Task {
     this.description = description;
     this.comments = comments;
     this.members = members;
+    this.status = false;
   }
 }

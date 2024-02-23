@@ -5,9 +5,6 @@ import PropTypes from "prop-types";
 class TaskCard extends Component {
   render() {
     const { tasks } = this.props.project;
-    console.log("project in task:", this.props.project);
-    console.log("task:", tasks);
-
     return (
       <div>
         {tasks.length === 0 ? (
@@ -23,6 +20,11 @@ class TaskCard extends Component {
                 <p className="card-text">End Date: {task.endDate}</p>
                 <p className="card-text">Description: {task.description}</p>
                 <p className="card-text">Assigned Members: {task.members.join(", ")}</p>
+                <p className="card-text">Status: 
+                  <span style={{fontWeight: "bold", color: task.status ? "green" : "red"}}>
+                    {task.status ? " Completed" : " Uncompleted"}
+                  </span>
+                </p>             
               </div>
             </div>
           ))
@@ -46,6 +48,7 @@ TaskCard.propTypes = {
         description: PropTypes.string.isRequired,
         comments: PropTypes.arrayOf(PropTypes.string).isRequired,
         members: PropTypes.arrayOf(PropTypes.string).isRequired,
+        status: PropTypes.bool.isRequired,
       })
     ),
     members: PropTypes.arrayOf(PropTypes.string).isRequired,
