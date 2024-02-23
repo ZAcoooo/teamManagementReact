@@ -42,7 +42,6 @@ export default class CreateTaskForm extends Component {
     const description = formData.get("description");
     const members = [];
     
-    // Loop through the formData object to get the selected members
     for (const pair of formData.entries()) {
       const [name] = pair;
       if (name !== "title" && name !== "startDate" && name !== "endDate" && name !== "description") {
@@ -51,20 +50,26 @@ export default class CreateTaskForm extends Component {
     }
     
     // Now you have access to the specific data from the form
-    console.log("Title:", title);
-    console.log("Start Date:", startDate);
-    console.log("End Date:", endDate);
-    console.log("Description:", description);
-    console.log("Members:", members);
+    // console.log("Title:", title);
+    // console.log("Start Date:", startDate);
+    // console.log("End Date:", endDate);
+    // console.log("Description:", description);
+    // console.log("Members:", members);
 
     project.createTask(title, startDate, endDate, description, members);
     localStorage.setItem("project", JSON.stringify(project));
     console.log("project:", project);
+    event.target.querySelector("input[name=title]").value = "";
+    event.target.querySelector("input[name=startDate]").value = "";
+    event.target.querySelector("input[name=endDate]").value = "";
+    event.target.querySelector("textarea[name=description]").value = "";
+    const checkboxes = event.target.querySelectorAll("input[type=checkbox]");
+    checkboxes.forEach(checkbox => {
+      checkbox.checked = false;
+    });
   };
 
   render() {
-    const { project } = this.props;
-    console.log("project123:", project);
     const { members } = this.state;
     return (
       <form className="mt-2" action="/" onSubmit={this.onCreate}>
