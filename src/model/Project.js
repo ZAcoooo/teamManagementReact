@@ -32,10 +32,24 @@ export default class Project {
   }
 
   getTaskById(id) {
-    return this.tasks[id];
+    return this.tasks.find(task => task.id === id);
   }
 
-  getNextId() {
-    return this.tasks?.at(-1).id + 1 || 1;
+  addCommentToTask(taskId, comment) {
+    const task = this.getTaskById(taskId);
+    if (task) {
+      task.comments.push(comment);
+      return true; // Return true if comment added successfully
+    }
+    return false; // Return false if task not found
+  }
+
+  markTaskAsCompleted(taskId) {
+    const task = this.getTaskById(taskId);
+    if (task) {
+      task.status = true;
+      return true; // Return true if task marked as completed successfully
+    }
+    return false; // Return false if task not found
   }
 }

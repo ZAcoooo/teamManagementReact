@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
-class LeaderProjectNavBar extends Component {
+class MemberProjectNavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -13,13 +13,10 @@ class LeaderProjectNavBar extends Component {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Leader" style={{ fontSize: "20px" }}>Leader Home</Link>
+                <Link className="nav-link active" aria-current="page" to="/Member" style={{ fontSize: "20px" }}>Member Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Leader/Project" style={{ fontSize: "20px" }}>View Tasks</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Leader/Project/CreateTask" style={{ fontSize: "20px" }}>Create Task</Link>
+                <Link className="nav-link active" aria-current="page" to="/Member/Project" style={{ fontSize: "20px" }}>View Tasks</Link>
               </li>
             </ul>
           </div>
@@ -29,4 +26,4 @@ class LeaderProjectNavBar extends Component {
   }
 }
 
-export default LeaderProjectNavBar;
+export default MemberProjectNavBar;

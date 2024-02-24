@@ -10,8 +10,6 @@ class CreateTaskPage extends Component {
     // Accessing the project from state
     const { project } = this.state;
     project.createTask(title, startDate, endDate, description, comments, members);
-    console.log("Task created:", task);
-    console.log("Task added into project", project);
   };
 
 

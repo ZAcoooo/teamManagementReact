@@ -12,7 +12,7 @@ class LeaderHome extends Component {
         <LeaderHomeNavBar />
         <div className="container mt-4">
           <h2>My Projects:</h2>
-          <Link to="/Project" style={{ textDecoration: "none" }}>
+          <Link to="/Leader/Project" style={{ textDecoration: "none" }}>
             <ProjectCard project={project}/>
           </Link>
         </div>
