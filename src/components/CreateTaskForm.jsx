@@ -32,10 +32,7 @@ export default class CreateTaskForm extends Component {
   onCreate = (event) => {
     event.preventDefault();
     const { project } = this.props;
-    console.log("p:", project);
-    console.log("pxxx:", event.target);
     const formData = new FormData(event.target);
-    console.log("onCreate", Object.fromEntries(formData));
     const title = formData.get("title");
     const startDate = formData.get("startDate");
     const endDate = formData.get("endDate");

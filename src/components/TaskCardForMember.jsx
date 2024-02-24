@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Popup from "reactjs-popup";
 
 class TaskCardForMember extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showCommentPopup: false,
       comment: "",
-      taskId: null, // Added taskId state
+      taskId: null,
+      showCommentPopup: false // Added state to control popup visibility
     };
   }
 
   handleAddComment = (taskId) => {
-    this.setState({ showCommentPopup: true, taskId }); // Set taskId when opening the popup
+    this.setState({ taskId, showCommentPopup: true }); // Open the popup when adding a comment
   };
 
   handleCommentChange = (event) => {
@@ -20,17 +21,17 @@ class TaskCardForMember extends Component {
   };
 
   handleCancelComment = () => {
-    this.setState({ showCommentPopup: false, comment: "", taskId: null }); // Reset taskId
+    this.setState({ comment: "", taskId: null, showCommentPopup: false }); // Close the popup when canceling
   };
 
-  handleConfirmComment = () => { // Remove taskId parameter
-    const { comment, taskId } = this.state; // Access taskId from state
+  handleConfirmComment = () => {
+    const { comment, taskId } = this.state;
     if (comment.trim() !== "") {
       const { project } = this.props;
       project.addCommentToTask(taskId, comment);
       localStorage.setItem("project", JSON.stringify(project));
     }
-    this.setState({ showCommentPopup: false, comment: "", taskId: null }); // Reset taskId
+    this.setState({ comment: "", taskId: null, showCommentPopup: false }); // Close the popup after confirming
   };
 
   handleMarkCompleted = (taskId) => {
@@ -43,7 +44,7 @@ class TaskCardForMember extends Component {
 
   render() {
     const { tasks } = this.props.project;
-    const { showCommentPopup, comment } = this.state;
+    const { comment, showCommentPopup } = this.state;
 
     return (
       <div>
@@ -81,13 +82,17 @@ class TaskCardForMember extends Component {
             </div>
           ))
         )}
-        {showCommentPopup && (
+        <Popup
+          open={showCommentPopup}
+          closeOnDocumentClick={false}
+          onClose={this.handleCancelComment}
+        >
           <div className="popup">
             <textarea value={comment} onChange={this.handleCommentChange} />
-            <button onClick={this.handleCancelComment}>Cancel</button>
             <button onClick={this.handleConfirmComment}>Confirm</button>
+            <button onClick={this.handleCancelComment}>Cancel</button>
           </div>
-        )}
+        </Popup>
       </div>
     );
   }
