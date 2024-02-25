@@ -7,7 +7,6 @@ import LeaderProjectPage from "./pages/LeaderProjectPage.jsx";
 import MemberProjectPage from "./pages/MemberProjectPage.jsx";
 import CreateTaskPage from "./pages/CreateTaskPage.jsx";
 import Project from "./model/Project.js";
-import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

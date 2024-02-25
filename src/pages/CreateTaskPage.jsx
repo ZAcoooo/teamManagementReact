@@ -4,21 +4,13 @@ import CreateTaskForm from "../components/CreateTaskForm";
 import PropTypes from "prop-types";
 
 class CreateTaskPage extends Component {
-  onCreateTask = (task) => {
-    console.log("Task created:", task);
-    const { title, startDate, endDate, description, comments, members } = task;
-    // Accessing the project from state
-    const { project } = this.state;
-    project.createTask(title, startDate, endDate, description, comments, members);
-  };
-
 
   render () {
     const { project } = this.props;
     return (
       <div>
         <LeaderProjectNavBar />
-        <CreateTaskForm onCreateTask={this.onCreateTask} project={project}/>
+        <CreateTaskForm project={project}/>
       </div>
     );
   }

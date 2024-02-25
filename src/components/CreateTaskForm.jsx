@@ -55,7 +55,7 @@ export default class CreateTaskForm extends Component {
 
     project.createTask(title, startDate, endDate, description, members);
     localStorage.setItem("project", JSON.stringify(project));
-    console.log("project:", project);
+    // console.log("project:", project);
     event.target.querySelector("input[name=title]").value = "";
     event.target.querySelector("input[name=startDate]").value = "";
     event.target.querySelector("input[name=endDate]").value = "";

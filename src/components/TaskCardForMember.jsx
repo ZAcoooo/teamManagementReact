@@ -8,12 +8,12 @@ class TaskCardForMember extends Component {
     this.state = {
       comment: "",
       taskId: null,
-      showCommentPopup: false // Added state to control popup visibility
+      showCommentPopup: false
     };
   }
 
   handleAddComment = (taskId) => {
-    this.setState({ taskId, showCommentPopup: true }); // Open the popup when adding a comment
+    this.setState({ taskId, showCommentPopup: true });
   };
 
   handleCommentChange = (event) => {
@@ -21,7 +21,7 @@ class TaskCardForMember extends Component {
   };
 
   handleCancelComment = () => {
-    this.setState({ comment: "", taskId: null, showCommentPopup: false }); // Close the popup when canceling
+    this.setState({ comment: "", taskId: null, showCommentPopup: false });
   };
 
   handleConfirmComment = () => {
@@ -29,9 +29,11 @@ class TaskCardForMember extends Component {
     if (comment.trim() !== "") {
       const { project } = this.props;
       project.addCommentToTask(taskId, comment);
-      localStorage.setItem("project", JSON.stringify(project));
+      this.setState({ project }, () => {
+        localStorage.setItem("project", JSON.stringify(this.state.project));
+      });
     }
-    this.setState({ comment: "", taskId: null, showCommentPopup: false }); // Close the popup after confirming
+    this.setState({ comment: "", taskId: null, showCommentPopup: false });
   };
 
   handleMarkCompleted = (taskId) => {

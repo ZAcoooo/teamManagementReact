@@ -39,17 +39,17 @@ export default class Project {
     const task = this.getTaskById(taskId);
     if (task) {
       task.comments.push(comment);
-      return true; // Return true if comment added successfully
+      return true;
     }
-    return false; // Return false if task not found
+    return false;
   }
 
   markTaskAsCompleted(taskId) {
     const task = this.getTaskById(taskId);
     if (task) {
       task.status = true;
-      return true; // Return true if task marked as completed successfully
+      return true;
     }
-    return false; // Return false if task not found
+    return false;
   }
 }
