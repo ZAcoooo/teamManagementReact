@@ -1,5 +1,5 @@
 # Team Project Management React App
-Team Project Management React App is a comprehensive web application built using React.js, designed to streamline project management for teams. This intuitive platform enables project leaders to create tasks, assign them to team members, and monitor progress in real-time. Team members can view assigned tasks, update their status, and collaborate by adding comments. With its user-friendly interface and powerful features, Team Project Management React App enhances productivity and coordination within project teams, ensuring smooth and efficient project execution.
+Team Project Management React App is a comprehensive web application built using React.js, designed to streamline project management for teams. With its user-friendly interface and powerful features, Team Project Management React App enhances productivity and coordination within project teams, ensuring smooth and efficient project execution.
 
 ## Design Document
 [Design Document](https://github.com/ZAcoooo/teamManagementReact/blob/main/Design/Project-1-Design.pdf)
