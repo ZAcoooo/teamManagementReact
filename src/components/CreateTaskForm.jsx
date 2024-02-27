@@ -45,17 +45,13 @@ export default class CreateTaskForm extends Component {
         members.push(name);
       }
     }
-    
-    // Now you have access to the specific data from the form
-    // console.log("Title:", title);
-    // console.log("Start Date:", startDate);
-    // console.log("End Date:", endDate);
-    // console.log("Description:", description);
-    // console.log("Members:", members);
+
 
     project.createTask(title, startDate, endDate, description, members);
+    // store in the local browser
     localStorage.setItem("project", JSON.stringify(project));
-    // console.log("project:", project);
+
+    // clean the form
     event.target.querySelector("input[name=title]").value = "";
     event.target.querySelector("input[name=startDate]").value = "";
     event.target.querySelector("input[name=endDate]").value = "";
